@@ -1,8 +1,17 @@
 const express = require('express')
 const router = express.Router()
+const Book = require('../models/book')
 
-router.get('/', (req, res) => { // '/' is the index of the page
-res.render('index') //this renders a view from the views folder
+router.get('/', async (req, res) => { // '/' is the index of the page
+    let book
+    try {
+        books = await Book.find().sort({ createdAt: 'desc'}).limit(10).exec()
+    } catch (error) {
+        books = []
+    }
+    res.render('index', {
+        books: books
+    })
 })
 
 
