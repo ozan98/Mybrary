@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const path = require('path')
-const coverImageBasePath = 'uploads/bookCovers'
+
+
 
 const bookSchema = new mongoose.Schema({
     title:{
@@ -23,7 +23,11 @@ const bookSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
-    coverImageName:{
+    coverImage:{
+        type: Buffer,
+        required: true
+    },
+    coverImageType:{
         type: String,
         required: true
     },
@@ -42,8 +46,9 @@ const bookSchema = new mongoose.Schema({
 //when we call coverImagePath, It is going to call the .get() function
 //using normal function because we need to use 'this' so we can link to the book it self
 bookSchema.virtual('coverImagePath').get(function(){
-    if(this.coverImageName != null){
-        return path.join('/', coverImageBasePath, this.coverImageName)
+    if(this.coverImage != null && this.coverImageType != null){
+        //data is an HTML object
+        return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
     }
 })
 
@@ -51,4 +56,3 @@ module.exports = mongoose.model('Book', bookSchema) //exporting the model.
                                                         //Name of the model is Author
                                                         //which is the name of the table in
                                                         //the database
-module.exports.coverImageBasePath = coverImageBasePath
