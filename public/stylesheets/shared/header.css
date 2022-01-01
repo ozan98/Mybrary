@@ -1,0 +1,57 @@
+:root {
+    --nav-title-font-size: 3rem;
+    --nav-title-font-weight: bold;
+    --nav-link-font-weight: 300;
+}
+
+
+
+/* class in the header.ejs */
+.header-title {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: var(--nav-title-font-size);
+    font-weight: var(--nav-title-font-weight);
+}
+
+/* for the nav bar */
+.header-nav {
+    /* to display elements side by side */
+    display: flex; 
+    /*flex-wrap to wrap so when the window gets smaller the elements will wrap down  */
+    flex-wrap: wrap;
+    /* to leave equal space between elements */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+/* the unordered list element inside the nav bar */
+.header-nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+/* getting rid of the starts beside the links */
+.header-nav li {
+    list-style: none;
+}
+
+ /* the list of links inside the nav bar  */
+.header-nav li a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-weight: var(--nav-link-font-weight);
+    padding: 1rem;
+}
+
+/* adding a hover effect on the nav bar. This effect is triggered by hovering over */
+/* the links and the title of the nav bar */
+.header-nav li a:hover, .header-title:hover {
+    color: white;
+}
+
+
+
+

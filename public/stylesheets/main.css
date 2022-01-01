@@ -1,0 +1,38 @@
+@import 'shared/variables.css';
+@import 'shared/fonts.css';
+@import 'shared/header.css';
+@import 'shared/buttons.css';
+
+
+/* :root selects the element that represents the root of the document */
+/* it is the same of selecting html tag but :root has higher specificity */
+:root {
+    font-family: "Gotham Rounded";
+    font-size: 20px;
+    color: var(--color-text-light);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    /* linear-gradient is a css function that creates progressive transition from one color to the other */
+    /* the two color variables are defined in the shared folder */
+    background: linear-gradient(to right, var(--color-background-dark), var(--color-background-light));
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.innter-container {
+    margin: 0 2rem;
+}
+
+.page-header {
+    font-size: 2rem;
+    font-weight: 500;
+}
