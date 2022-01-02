@@ -1,0 +1,10 @@
+.author-row{
+    display: flex;
+    /* to seperate out every element like the header */
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.author-name{
+    font-size: 1.5rem;
+}
