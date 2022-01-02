@@ -1,0 +1,102 @@
+:root {
+    --form-label-font-size: 1.2rem;
+    --form-input-background-color: hsl(var(--color-base-hue), 100%, 31%);
+    --form-input-border-color: hsl(var(--color-base-hue), 100%, 50%);
+    --form-input-border-color-light: hsl(var(--color-base-hue), 100%, 80%);
+}
+
+
+.form-row {
+    /* to have elements side by side */
+    display: flex;
+    margin-bottom: .5rem;
+}
+
+.form-item {
+    display: flex;
+    /* to have labels on top of the input elements */
+    flex-direction:column;
+    margin-left: 2rem;
+    /* to have equal distance between elements while screen grows */
+    flex-grow: 1;
+    /* to have elemts grow from the same point */
+    flex-basis: 0;
+}
+
+.form-item:first-child {
+    /* to have all elemts right on the edge */
+    margin-left: 0;
+}
+
+.form-item-no-grow {
+    /* to stop elemets from growing  */
+    flex-grow: 0;
+}
+
+.form-row-end {
+    /* this will push all the elements to the end. e.g the button to the bottom right */
+    justify-content: flex-end;
+}
+
+/* select labels in the .form-item class */
+.form-item > label {
+    font-size: var(--form-label-font-size);
+    margin-bottom: .23rem;
+    margin-left: .25rem;
+}
+
+/* styling of all the input boxes */
+.form-item input, .form-item select, .form-item textarea {
+    height: 2rem;
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+    border: 1px solid var(--form-input-border-color);
+    background-color: var(--form-input-background-color);
+    color: var(--color-text-light);
+    font-size: 1rem;
+    font-weight: normal;
+    /* reason to set font size is because text in input elements are not default to the root font */
+    font-family: 'Gothem Rounded';
+    outline: none;
+}
+
+/* styling of the option in the select input */
+.form-item select option {
+    background-color: black;
+}
+
+.form-item textarea {
+    /* height is set to 100% to be equal to the other elements in the same container */
+    height: 100%;
+    /* this stops the description box to not be resizeable */
+    resize: none;
+}
+
+
+
+/* styling once we click on any input, select and textarea in the form */
+.form-item input:focus, .form-item select:focus, .form-item textarea:focus{
+    border-color: var(--form-input-border-color-light);
+}
+
+/* styling of the filepond root container */
+.filepond--root{
+    font-family: 'Gotham Rounded';
+    margin-bottom: 0;
+}
+
+/* styling of the filepond panel */
+.filepond--panel-root {
+    background-color: var(--form-input-background-color);
+    border: 1px solid var(--form-input-border-color)
+}
+
+.filepond--drop-label {
+    color: var(--color-text-light);
+    /* inherits the font size of the parent. to make the font size of the label the same as the general font size */
+    font-size: inherit;
+}
+
+/* NOTE the size of the box of the cover image is done in the javascript */
+
+
